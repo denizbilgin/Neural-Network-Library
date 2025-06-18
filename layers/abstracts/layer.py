@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from typing import Tuple
 import numpy as np
 
 
@@ -8,7 +9,7 @@ class Layer(ABC):
         self.trainable = True
 
     @abstractmethod
-    def forward(self) -> np.ndarray:
+    def forward(self, layer_input: np.ndarray) -> Tuple[np.ndarray, Tuple]:
         pass
 
     @abstractmethod
@@ -17,8 +18,4 @@ class Layer(ABC):
 
     @abstractmethod
     def get_params(self):
-        pass
-
-    @abstractmethod
-    def set_params(self):
         pass
